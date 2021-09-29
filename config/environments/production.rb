@@ -116,6 +116,8 @@ Rails.application.configure do
   # to make Rails upgrades easier.
   # ----------------------------------------------------------------
 
+  config.active_storage.service = :production
+
   config.action_mailer.delivery_method = AlaveteliConfiguration.production_mailer_delivery_method.to_sym
 
   if AlaveteliConfiguration.production_mailer_delivery_method.to_sym == :smtp

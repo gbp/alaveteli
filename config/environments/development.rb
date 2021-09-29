@@ -77,6 +77,8 @@ Rails.application.configure do
   # to make Rails upgrades easier.
   # ----------------------------------------------------------------
 
+  config.active_storage.service = :development
+
   config.action_mailer.preview_path = Rails.root.join(
     'spec', 'mailers', 'previews'
   )
