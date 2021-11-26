@@ -16,7 +16,7 @@ namespace :storage do
     end
 
     unattached_emails.find_each.with_index do |e, i|
-      e.data = e.data
+      Kernel.silence_warnings { e.data = e.data }
       erase_line
       print "Migrated raw email (#{i + 1}/#{count})"
     end
