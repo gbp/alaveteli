@@ -348,7 +348,7 @@ class OutgoingMessage < ApplicationRecord
 
     if strip_salutation && public_body
       salutation = self.class.default_salutation(public_body)
-      text.sub!(/#{salutation}\s*/, '')
+      text.sub!(/#{Regexp.escape(salutation)}\s*/, '')
     end
 
     # Remove email addresses from display/index etc.
