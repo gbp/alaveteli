@@ -20,7 +20,7 @@ class RawEmail < ApplicationRecord
   has_one :incoming_message,
           :inverse_of => :raw_email
 
-  has_one_attached :file
+  has_one_attached :file, service: :raw_emails
 
   delegate :date, to: :mail
   delegate :message_id, to: :mail
