@@ -70,7 +70,7 @@ class RawEmail < ApplicationRecord
   def directory
     if file.attached?
       warn <<~DEPRECATION.squish
-        [DEPRECATION] RawEmail#directory shouldn't be  used when using
+        [DEPRECATION] RawEmail#directory shouldn't be used when using
         `ActiveStorage` backed file stores. This method will be removed
         in 0.42.
       DEPRECATION
