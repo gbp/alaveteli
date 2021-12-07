@@ -81,10 +81,10 @@ source 'https://rubygems.org'
 
 # See instructions in Gemfile.rails_next
 def rails_upgrade?
-  true
+  %w[1 true].include?(ENV['RAILS_UPGRADE'])
 end
 
-gem 'rails', '~> 6.1.4'
+gem 'rails', rails_upgrade? ? '7.0.0.rc1' : '~> 6.1.4'
 
 gem 'pg', '~> 1.2.3'
 
@@ -169,7 +169,6 @@ group :test do
 end
 
 group :test, :development do
-  gem 'bullet', '~> 6.1.5'
   gem 'factory_bot_rails', '~> 6.2.0'
   gem 'oink', '~> 0.10.1'
   gem 'rspec-activemodel-mocks', '~> 1.1.0'
@@ -180,6 +179,7 @@ end
 
 group :development do
   gem 'annotate', '< 3.1.1'
+  gem 'bullet', '~> 6.1.5'
   gem 'capistrano', '~> 2.15.0', '< 3.0.0'
     gem 'net-ssh', '~> 6.1.0'
       gem 'net-ssh-gateway', '>= 1.1.0', '< 3.0.0'
